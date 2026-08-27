@@ -1,0 +1,26 @@
+.title {
+  margin-bottom: var(--space-8);
+}
+
+.featuredList {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .title {
+    margin-bottom: var(--space-10);
+  }
+}

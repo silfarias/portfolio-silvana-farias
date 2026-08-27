@@ -1,0 +1,74 @@
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: rgb(161 161 170 / 82%);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.label {
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+
+.connector {
+  position: relative;
+  width: 1px;
+  height: 0.95rem;
+  margin: 0.2rem 0 0.2rem 0.45rem;
+  background: rgb(167 139 250 / 38%);
+}
+
+.connector::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.12rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+}
+
+@media (min-width: 40rem) {
+  .flow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0;
+    row-gap: var(--space-2);
+  }
+
+  .step {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .connector {
+    width: 1.65rem;
+    height: 1px;
+    margin: 0 0.45rem;
+  }
+
+  .connector::after {
+    top: 50%;
+    right: -0.14rem;
+    left: auto;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}

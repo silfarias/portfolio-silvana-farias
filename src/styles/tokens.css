@@ -1,0 +1,57 @@
+:root {
+  --color-bg: #0d0d12;
+  --color-bg-elevated: #15151d;
+  --color-bg-muted: #1a1a24;
+  --color-accent: #a78bfa;
+  --color-accent-strong: #8b5cf6;
+  --color-accent-soft: #c4b5fd;
+  --color-accent-muted: rgb(167 139 250 / 14%);
+  --color-text: #f5f5f7;
+  --color-text-muted: #a1a1aa;
+  --color-border: #27272a;
+  --color-focus: #c4b5fd;
+
+  --font-sans: 'IBM Plex Sans', system-ui, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --text-4xl: 3.5rem;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  --content-max: 70rem;
+  --shell-max: 76rem;
+  --header-height: 4.25rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+
+  --shadow-header: 0 1px 0 var(--color-border);
+
+  --ease-out: 150ms ease;
+  --z-header: 40;
+  --z-overlay: 50;
+  --z-skip: 60;
+  --animate-duration: 650ms;
+  --animate-delay: 0s;
+}
