@@ -136,7 +136,7 @@
 
 @media (min-width: 64rem) {
   .featured {
-    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.95fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 1fr);
     gap: var(--space-8);
     align-items: start;
     padding: var(--space-8) var(--space-6);

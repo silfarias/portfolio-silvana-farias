@@ -1,49 +1,113 @@
-export type StackGroup = {
-  id: 'backend' | 'databases' | 'frontend' | 'devops'
-  title: string
-  featured?: boolean
-  items: readonly string[]
-}
+import { FiCloud, FiDatabase, FiServer, FiShield, FiTerminal, FiUsers } from 'react-icons/fi'
+import {
+  SiBootstrap,
+  SiCss,
+  SiDocker,
+  SiExpress,
+  SiFastapi,
+  SiGit,
+  SiGithub,
+  SiGitlab,
+  SiHtml5,
+  SiJavascript,
+  SiJira,
+  SiKubernetes,
+  SiLinux,
+  SiMongodb,
+  SiMysql,
+  SiNestjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrimereact,
+  SiPython,
+  SiReact,
+  SiTerraform,
+  SiTypeorm,
+  SiTypescript,
+} from 'react-icons/si'
+import type { ExploringStack, Technology, TechnologyCategory } from '../types/stack'
 
-export const coreStack = ['Node.js', 'NestJS', 'TypeScript', 'MySQL'] as const
+const nodeJs: Technology = { name: 'Node.js', icon: SiNodedotjs }
+const nestJs: Technology = { name: 'NestJS', icon: SiNestjs }
+const typeScript: Technology = { name: 'TypeScript', icon: SiTypescript }
+const mySql: Technology = { name: 'MySQL', icon: SiMysql }
 
-export const stackGroups: StackGroup[] = [
+export const coreStack: Technology[] = [nodeJs, nestJs, typeScript, mySql]
+
+export const stackCategories: TechnologyCategory[] = [
+  {
+    id: 'languages',
+    title: 'Lenguajes',
+    technologies: [
+      typeScript,
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'Python', icon: SiPython },
+      { name: 'SQL', icon: FiDatabase },
+      { name: 'HTML', icon: SiHtml5 },
+      { name: 'CSS', icon: SiCss },
+    ],
+  },
   {
     id: 'backend',
     title: 'Backend',
-    featured: true,
-    items: [
-      'TypeScript',
-      'Node.js',
-      'NestJS',
-      'Express.js',
-      'FastAPI',
-      'APIs REST',
-      'JWT',
+    highlighted: true,
+    technologies: [
+      nodeJs,
+      nestJs,
+      { name: 'Express.js', icon: SiExpress },
+      { name: 'FastAPI', icon: SiFastapi },
+      { name: 'APIs REST', icon: FiServer },
+      { name: 'JWT', icon: FiShield },
     ],
   },
   {
     id: 'databases',
     title: 'Bases de datos y ORM',
-    items: ['MySQL', 'PostgreSQL', 'MongoDB', 'TypeORM'],
+    technologies: [
+      mySql,
+      { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'TypeORM', icon: SiTypeorm },
+    ],
   },
   {
     id: 'frontend',
     title: 'Frontend',
-    items: ['React', 'React Native', 'HTML', 'CSS', 'Bootstrap', 'PrimeReact'],
+    technologies: [
+      { name: 'React', icon: SiReact },
+      { name: 'React Native', icon: SiReact },
+      { name: 'Bootstrap', icon: SiBootstrap },
+      { name: 'PrimeReact', icon: SiPrimereact },
+    ],
   },
   {
     id: 'devops',
     title: 'DevOps y herramientas',
-    items: [
-      'Git',
-      'GitHub',
-      'GitLab CI/CD',
-      'Docker',
-      'Kubernetes',
-      'Linux',
-      'SSH',
-      'Jira',
+    wide: true,
+    technologies: [
+      { name: 'Git', icon: SiGit },
+      { name: 'GitHub', icon: SiGithub },
+      { name: 'GitLab CI/CD', icon: SiGitlab },
+      { name: 'Docker', icon: SiDocker },
+      { name: 'Kubernetes', icon: SiKubernetes },
+      { name: 'Linux', icon: SiLinux },
+      { name: 'SSH', icon: FiTerminal },
+      { name: 'Jira', icon: SiJira },
     ],
   },
+  {
+    id: 'methodologies',
+    title: 'Metodologías',
+    technologies: [{ name: 'Scrum', icon: FiUsers }],
+  },
 ]
+
+export const exploringStack: ExploringStack = {
+  title: 'Actualmente explorando',
+  description:
+    'Tecnologías que estoy incorporando actualmente dentro de mi formación en DevOps.',
+  technologies: [
+    { name: 'Terraform', icon: SiTerraform },
+    { name: 'AWS', icon: FiCloud },
+  ],
+}

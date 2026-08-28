@@ -1,17 +1,19 @@
-import type { CSSProperties, KeyboardEvent } from 'react'
-import { useId, useState } from 'react'
+import { useId, useState, type CSSProperties, type KeyboardEvent } from 'react'
+import { FiChevronLeft, FiChevronRight, FiMaximize2 } from 'react-icons/fi'
+import { ImageLightbox } from '../../components/ImageLightbox/ImageLightbox'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import type { ProjectImage } from '../../types/project'
-import styles from './ProjectGallery.module.css'
+import styles from './ProjectCarousel.module.css'
 
-type ProjectGalleryProps = {
+type ProjectCarouselProps = {
   name: string
   images: readonly ProjectImage[]
 }
 
-export function ProjectGallery({ name, images }: ProjectGalleryProps) {
+export function ProjectCarousel({ name, images }: ProjectCarouselProps) {
   const galleryId = useId()
   const [index, setIndex] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
   const total = images.length
   const current = images[index] ?? images[0]
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
@@ -25,6 +27,10 @@ export function ProjectGallery({ name, images }: ProjectGalleryProps) {
   }
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (lightboxOpen) {
+      return
+    }
+
     if (event.key === 'ArrowLeft') {
       event.preventDefault()
       goTo(index - 1)
@@ -48,29 +54,52 @@ export function ProjectGallery({ name, images }: ProjectGalleryProps) {
 
   return (
     <div
-      className={styles.gallery}
+      className={styles.carousel}
       role="region"
       aria-roledescription="carrusel"
       aria-label={`Capturas de ${name}`}
       tabIndex={0}
       onKeyDown={onKeyDown}
     >
-      <div className={styles.viewport} id={galleryId}>
-        <img
-          key={current.src}
-          className={
-            reducedMotion
-              ? styles.image
-              : `${styles.image} animate__animated animate__fadeIn`
-          }
-          style={
-            reducedMotion
-              ? undefined
-              : ({ ['--animate-duration']: '420ms' } as CSSProperties)
-          }
-          src={current.src}
-          alt={current.alt}
-        />
+      <div className={styles.frame}>
+        <div className={styles.chrome} aria-hidden="true">
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+        </div>
+
+        <div className={styles.stage} id={galleryId}>
+          <button
+            className={styles.shot}
+            type="button"
+            aria-label={`Ampliar captura${current.caption ? `: ${current.caption}` : ''}`}
+            onClick={() => setLightboxOpen(true)}
+          >
+            <img
+              key={current.src}
+              className={
+                reducedMotion
+                  ? styles.image
+                  : `${styles.image} animate__animated animate__fadeIn`
+              }
+              style={
+                reducedMotion
+                  ? undefined
+                  : ({ ['--animate-duration']: '380ms' } as CSSProperties)
+              }
+              src={current.src}
+              alt={current.alt}
+              draggable={false}
+            />
+            <span className={styles.expand} aria-hidden="true">
+              <FiMaximize2 />
+            </span>
+          </button>
+        </div>
+
+        {current.caption ? (
+          <p className={styles.caption}>{current.caption}</p>
+        ) : null}
       </div>
 
       {total > 1 ? (
@@ -81,7 +110,7 @@ export function ProjectGallery({ name, images }: ProjectGalleryProps) {
             aria-label="Imagen anterior"
             onClick={() => goTo(index - 1)}
           >
-            <Chevron direction="prev" />
+            <FiChevronLeft aria-hidden="true" />
           </button>
 
           <p className={styles.counter} aria-live="polite">
@@ -94,7 +123,7 @@ export function ProjectGallery({ name, images }: ProjectGalleryProps) {
             aria-label="Imagen siguiente"
             onClick={() => goTo(index + 1)}
           >
-            <Chevron direction="next" />
+            <FiChevronRight aria-hidden="true" />
           </button>
         </div>
       ) : null}
@@ -103,9 +132,9 @@ export function ProjectGallery({ name, images }: ProjectGalleryProps) {
         <div className={styles.dots} role="tablist" aria-label="Seleccionar captura">
           {images.map((image, imageIndex) => (
             <button
-              key={image.src}
+              key={`${image.src}-${imageIndex}`}
               className={
-                imageIndex === index ? `${styles.dot} ${styles.dotActive}` : styles.dot
+                imageIndex === index ? `${styles.dotButton} ${styles.dotActive}` : styles.dotButton
               }
               type="button"
               role="tab"
@@ -117,24 +146,16 @@ export function ProjectGallery({ name, images }: ProjectGalleryProps) {
           ))}
         </div>
       ) : null}
-    </div>
-  )
-}
 
-function Chevron({ direction }: { direction: 'prev' | 'next' }) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      {direction === 'prev' ? (
-        <path
-          fill="currentColor"
-          d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      {lightboxOpen ? (
+        <ImageLightbox
+          images={images}
+          index={index}
+          label={name}
+          onIndexChange={setIndex}
+          onClose={() => setLightboxOpen(false)}
         />
-      ) : (
-        <path
-          fill="currentColor"
-          d="M9.59 7.41 11 6l6 6-6 6-1.41-1.41L14.17 12z"
-        />
-      )}
-    </svg>
+      ) : null}
+    </div>
   )
 }

@@ -1,4 +1,4 @@
-import { ProjectGallery } from './ProjectGallery'
+import { ProjectCarousel } from './ProjectCarousel'
 import { getProjectImages } from '../../data/getProjectImages'
 import type { Project } from '../../types/project'
 import styles from './ProjectPreview.module.css'
@@ -12,7 +12,7 @@ export function ProjectPreview({ project }: ProjectPreviewProps) {
 
   if (images.length > 0) {
     return (
-      <ProjectGallery
+      <ProjectCarousel
         key={images.map((image) => image.src).join('|')}
         name={project.name}
         images={images}

@@ -30,25 +30,46 @@ export const projects: Project[] = [
       'Vercel',
       // Confirmar antes de mostrar: Redux Toolkit
     ],
-    // Colocar en src/assets/ las capturas anonimizadas:
-    // prode-email-verification.png, prode-ranking.png,
-    // prode-match-results.png, prode-admin.png
     images: [
       {
-        src: 'prode-email-verification.png',
-        alt: 'Pantalla de verificación de cuenta por email del Prode Mundial 2026',
+        src: 'prode-mundial/inicio.png',
+        alt: 'Panel principal del Prode Mundial 2026 con resumen de puntos y posición',
+        caption: 'Panel principal',
       },
       {
-        src: 'prode-ranking.png',
+        src: 'prode-mundial/reglamento.png',
+        alt: 'Reglamento y sistema de puntuación del Prode Mundial 2026',
+        caption: 'Reglamento y puntuación',
+      },
+      {
+        src: 'prode-mundial/mi-prode.png',
+        alt: 'Fixture de partidos del Mundial con filtros y resultados',
+        caption: 'Fixture de partidos',
+      },
+      {
+        src: 'prode-mundial/mi-prode-2.png',
+        alt: 'Listado de partidos finalizados con consulta de aciertos',
+        caption: 'Resultados de partidos',
+      },
+      {
+        src: 'prode-mundial/ranking.png',
         alt: 'Ranking de participantes del Prode Mundial 2026',
+        caption: 'Ranking de participantes',
       },
       {
-        src: 'prode-match-results.png',
-        alt: 'Carga de resultados de partidos desde el panel de administración',
+        src: 'prode-mundial/quien-acerto.png',
+        alt: 'Detalle de aciertos de un partido del Prode Mundial 2026',
+        caption: 'Aciertos por partido',
       },
       {
-        src: 'prode-admin.png',
-        alt: 'Panel de administración del Prode Mundial 2026',
+        src: 'prode-mundial/admin-partidos.png',
+        alt: 'Panel de administración para cargar y editar resultados de partidos',
+        caption: 'Administración de partidos',
+      },
+      {
+        src: 'prode-mundial/admin-ranking.png',
+        alt: 'Panel de administración del ranking de participantes',
+        caption: 'Administración del ranking',
       },
     ],
   },

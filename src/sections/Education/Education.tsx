@@ -20,39 +20,78 @@ export function Education() {
           Educación
         </AnimateOnScroll>
 
-        <AnimateOnScroll animation="fadeInUp" delay={80} className={styles.list}>
-          {education.map((item) => (
-            <EducationRow item={item} key={item.id} />
+        <div className={styles.track}>
+          {education.map((item, index) => (
+            <EducationEntry
+              item={item}
+              delay={index === 0 ? 80 : 170}
+              key={item.id}
+            />
           ))}
-        </AnimateOnScroll>
+        </div>
       </div>
     </section>
   )
 }
 
-type EducationRowProps = {
+type EducationEntryProps = {
   item: EducationItem
+  delay: number
 }
 
-function EducationRow({ item }: EducationRowProps) {
+function EducationEntry({ item, delay }: EducationEntryProps) {
   const headingId = `${item.id}-titulo`
   const isCurrent = item.status === 'En curso'
+  const Icon = item.icon
 
   return (
-    <article className={styles.item} aria-labelledby={headingId}>
-      <h3 className={styles.name} id={headingId}>
-        {item.title}
-      </h3>
-      <p className={styles.institution}>{item.institution}</p>
-      {item.modality ? (
-        <p className={styles.modality}>{item.modality}</p>
-      ) : null}
-      <p className={styles.period}>{item.period}</p>
-      <p
-        className={isCurrent ? `${styles.badge} ${styles.badgeCurrent}` : styles.badge}
-      >
-        {item.status}
-      </p>
-    </article>
+    <AnimateOnScroll
+      as="article"
+      animation="fadeInUp"
+      delay={delay}
+      className={isCurrent ? `${styles.item} ${styles.itemCurrent}` : styles.item}
+      aria-labelledby={headingId}
+    >
+      <div className={styles.axis} aria-hidden="true">
+        <span className={styles.node} />
+      </div>
+
+      <div className={styles.body}>
+        <div className={styles.kicker}>
+          <p className={styles.index}>
+            {item.code}
+            <span className={styles.indexDivider}> / </span>
+            {item.track}
+          </p>
+          <span className={styles.icon}>
+            <Icon />
+          </span>
+        </div>
+
+        <div className={styles.layout}>
+          <div className={styles.content}>
+            <h3 className={styles.name} id={headingId}>
+              {item.title}
+            </h3>
+            <p className={styles.institution}>{item.institution}</p>
+            {item.modality ? (
+              <p className={styles.modality}>{item.modality}</p>
+            ) : null}
+            <p className={styles.description}>{item.description}</p>
+          </div>
+
+          <div className={styles.meta}>
+            <p
+              className={
+                isCurrent ? `${styles.badge} ${styles.badgeCurrent}` : styles.badge
+              }
+            >
+              {item.status}
+            </p>
+            <p className={styles.period}>{item.period}</p>
+          </div>
+        </div>
+      </div>
+    </AnimateOnScroll>
   )
 }

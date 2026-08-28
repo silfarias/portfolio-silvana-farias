@@ -1,0 +1,77 @@
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  line-height: 1.2;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  color: var(--color-text-muted);
+  transition: color 180ms ease;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.core {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: var(--color-bg-muted);
+  font-size: var(--text-md);
+}
+
+.core .icon {
+  width: 1.625rem;
+  height: 1.625rem;
+  color: var(--color-accent);
+}
+
+.exploring {
+  border-style: dashed;
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.exploring .icon {
+  color: var(--color-text-muted);
+}
+
+@media (hover: hover) {
+  .item:hover {
+    border-color: var(--color-accent);
+    background: var(--color-bg-muted);
+    transform: translateY(-2px);
+  }
+
+  .item:hover .icon {
+    color: var(--color-accent);
+  }
+
+  .core:hover {
+    background: var(--color-accent-muted);
+  }
+
+  .exploring:hover {
+    background: var(--color-bg-elevated);
+    color: var(--color-text);
+  }
+}

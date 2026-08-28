@@ -1,0 +1,168 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: rgb(8 8 12 / 84%);
+  animation: lightboxOverlayIn 320ms ease;
+}
+
+.overlay.closing {
+  animation: lightboxOverlayOut 240ms ease forwards;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.close,
+.nav,
+.panel {
+  pointer-events: auto;
+}
+
+.stage {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 0;
+  pointer-events: none;
+}
+
+.close,
+.nav {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+}
+
+.close svg,
+.nav svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.close:hover,
+.nav:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.close {
+  z-index: 1;
+  align-self: flex-end;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  max-width: min(72rem, 100%);
+  animation: lightboxPanelIn 320ms ease;
+}
+
+.image {
+  max-width: 100%;
+  max-height: min(64dvh, 100%);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #0a0a10;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+  max-width: 100%;
+}
+
+.caption {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+.counter {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+@keyframes lightboxOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxOverlayOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes lightboxPanelIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .overlay {
+    padding: var(--space-6);
+  }
+
+  .stage {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+
+  .image {
+    max-height: min(78dvh, 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .overlay.closing,
+  .panel {
+    animation: none;
+  }
+}

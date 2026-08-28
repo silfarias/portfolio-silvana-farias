@@ -8,4 +8,8 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  server: {
+    // Permite visitas desde el túnel de Cloudflare (trycloudflare.com)
+    allowedHosts: ['.trycloudflare.com'],
+  },
 })

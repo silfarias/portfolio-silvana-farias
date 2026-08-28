@@ -1,5 +1,7 @@
 import { AnimateOnScroll } from '../../components/AnimateOnScroll/AnimateOnScroll'
-import { coreStack, stackGroups } from '../../data/stack'
+import { coreStack, exploringStack, stackCategories } from '../../data/stack'
+import { TechnologyCategory } from './TechnologyCategory'
+import { TechnologyItem } from './TechnologyItem'
 import styles from './Stack.module.css'
 
 export function Stack() {
@@ -15,47 +17,49 @@ export function Stack() {
           Stack tecnológico
         </AnimateOnScroll>
 
-        <AnimateOnScroll animation="fadeInUp" delay={80}>
-          <div className={styles.core}>
-            <p className={styles.coreLabel}>Stack principal</p>
-            <ul className={styles.coreList}>
-              {coreStack.map((technology, index) => (
-                <li className={styles.coreItem} key={technology}>
-                  {index > 0 ? (
-                    <span className={styles.coreSeparator} aria-hidden="true">
-                      ·
-                    </span>
-                  ) : null}
-                  {technology}
+        <AnimateOnScroll
+          animation="fadeInUp"
+          delay={80}
+          className={styles.core}
+          aria-labelledby="stack-principal"
+        >
+          <h3 className={styles.coreLabel} id="stack-principal">
+            Stack principal
+          </h3>
+          <ul className={styles.coreList}>
+            {coreStack.map((technology) => (
+              <li key={technology.name}>
+                <TechnologyItem technology={technology} variant="core" />
+              </li>
+            ))}
+          </ul>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fadeInUp" delay={160} className={styles.lower}>
+          <div className={styles.groups}>
+            {stackCategories.map((category) => (
+              <TechnologyCategory category={category} key={category.id} />
+            ))}
+          </div>
+
+          <aside
+            className={styles.exploring}
+            aria-labelledby="stack-explorando"
+          >
+            <h3 className={styles.exploringTitle} id="stack-explorando">
+              {exploringStack.title}
+            </h3>
+            <p className={styles.exploringDescription}>
+              {exploringStack.description}
+            </p>
+            <ul className={styles.exploringList}>
+              {exploringStack.technologies.map((technology) => (
+                <li key={technology.name}>
+                  <TechnologyItem technology={technology} variant="exploring" />
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className={styles.groups}>
-            {stackGroups.map((group) => (
-              <section
-                className={
-                  group.featured
-                    ? `${styles.group} ${styles.groupFeatured}`
-                    : styles.group
-                }
-                key={group.id}
-                aria-labelledby={`stack-${group.id}`}
-              >
-                <h3 className={styles.groupTitle} id={`stack-${group.id}`}>
-                  {group.title}
-                </h3>
-                <ul className={styles.tags}>
-                  {group.items.map((item) => (
-                    <li key={item}>
-                      <span className={styles.tag}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
+          </aside>
         </AnimateOnScroll>
       </div>
     </section>
