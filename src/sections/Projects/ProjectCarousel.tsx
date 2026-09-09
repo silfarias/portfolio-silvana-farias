@@ -89,6 +89,8 @@ export function ProjectCarousel({ name, images }: ProjectCarouselProps) {
               }
               src={current.src}
               alt={current.alt}
+              loading="lazy"
+              decoding="async"
               draggable={false}
             />
             <span className={styles.expand} aria-hidden="true">

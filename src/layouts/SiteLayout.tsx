@@ -13,16 +13,20 @@ type SiteLayoutProps = {
 export function SiteLayout({ children }: SiteLayoutProps) {
   const isDesktop = useMediaQuery('(min-width: 64rem)')
   const [menuOpen, setMenuOpen] = useState(false)
-
-  if (isDesktop && menuOpen) {
-    setMenuOpen(false)
-  }
+  const mobileMenuOpen = menuOpen && !isDesktop
 
   return (
     <div className={styles.layout}>
       <SkipLink />
-      <Navbar menuOpen={menuOpen} onMenuOpenChange={setMenuOpen} />
-      <div className={styles.content} inert={menuOpen}>
+      <Navbar
+        menuOpen={mobileMenuOpen}
+        onMenuOpenChange={(open) => {
+          if (!isDesktop) {
+            setMenuOpen(open)
+          }
+        }}
+      />
+      <div className={styles.content} inert={mobileMenuOpen || undefined}>
         <main
           id="contenido-principal"
           className={styles.main}

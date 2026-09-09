@@ -208,6 +208,8 @@ export function ImageLightbox({
             }
             src={current.src}
             alt={current.alt}
+            loading="lazy"
+            decoding="async"
             draggable={false}
           />
           <figcaption className={styles.meta}>

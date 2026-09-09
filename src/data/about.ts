@@ -5,10 +5,10 @@ export const aboutParagraphs = [
 ]
 
 export const aboutHighlights = [
-  'Formosa, Argentina',
-  'Backend Developer',
-  'Experiencia Full Stack',
-  'En formación continua en DevOps',
-]
+  { label: 'Ubicación', value: 'Formosa, Argentina' },
+  { label: 'Perfil', value: 'Backend Developer' },
+  { label: 'Experiencia', value: 'Full Stack' }
+] as const
 
+export const aboutSnippetLabel = 'BACKEND FLOW'
 export const aboutSnippet = '{ API → service → database }'

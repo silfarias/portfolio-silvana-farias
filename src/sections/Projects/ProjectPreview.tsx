@@ -1,7 +1,7 @@
+import { ProjectArchitecturePanel } from './ProjectArchitecturePanel'
 import { ProjectCarousel } from './ProjectCarousel'
 import { getProjectImages } from '../../data/getProjectImages'
 import type { Project } from '../../types/project'
-import styles from './ProjectPreview.module.css'
 
 type ProjectPreviewProps = {
   project: Project
@@ -20,20 +20,9 @@ export function ProjectPreview({ project }: ProjectPreviewProps) {
     )
   }
 
-  return (
-    <div
-      className={styles.frame}
-      role="img"
-      aria-label={`Espacio reservado para capturas de ${project.name}`}
-    >
-      <div className={styles.chrome} aria-hidden="true">
-        <span className={styles.dot} />
-        <span className={styles.dot} />
-        <span className={styles.dot} />
-      </div>
-      <div className={styles.screen} aria-hidden="true">
-        <p className={styles.mark}>{'{ screenshot }'}</p>
-      </div>
-    </div>
-  )
+  if (project.architectureModules && project.architectureModules.length > 0) {
+    return <ProjectArchitecturePanel project={project} />
+  }
+
+  return null
 }

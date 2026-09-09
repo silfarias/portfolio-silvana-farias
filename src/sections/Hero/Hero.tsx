@@ -1,4 +1,4 @@
-import profilePhoto from '../../assets/perfil.jpeg'
+import profilePhoto from '../../assets/perfil.webp'
 import { AnimateOnScroll } from '../../components/AnimateOnScroll/AnimateOnScroll'
 import { Button } from '../../components/Button/Button'
 import { GitHubIcon } from '../../components/icons/Icons'
@@ -74,6 +74,8 @@ export function Hero() {
                 alt={`${site.name}, ${site.role}`}
                 width={480}
                 height={640}
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </AnimateOnScroll>

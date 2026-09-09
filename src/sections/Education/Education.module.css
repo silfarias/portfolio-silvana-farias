@@ -1,6 +1,5 @@
 .title {
   margin-bottom: var(--space-8);
-  font-size: clamp(1.5rem, 2.2vw, 1.75rem);
 }
 
 .track {

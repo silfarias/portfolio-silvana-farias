@@ -1,4 +1,5 @@
 import type { Project } from '../types/project'
+import { FiLayers, FiMapPin, FiSearch, FiShield } from 'react-icons/fi'
 
 export const projects: Project[] = [
   {
@@ -32,42 +33,42 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        src: 'prode-mundial/inicio.png',
+        src: 'prode-mundial/inicio.webp',
         alt: 'Panel principal del Prode Mundial 2026 con resumen de puntos y posición',
         caption: 'Panel principal',
       },
       {
-        src: 'prode-mundial/reglamento.png',
+        src: 'prode-mundial/reglamento.webp',
         alt: 'Reglamento y sistema de puntuación del Prode Mundial 2026',
         caption: 'Reglamento y puntuación',
       },
       {
-        src: 'prode-mundial/mi-prode.png',
+        src: 'prode-mundial/mi-prode.webp',
         alt: 'Fixture de partidos del Mundial con filtros y resultados',
         caption: 'Fixture de partidos',
       },
       {
-        src: 'prode-mundial/mi-prode-2.png',
+        src: 'prode-mundial/mi-prode-2.webp',
         alt: 'Listado de partidos finalizados con consulta de aciertos',
         caption: 'Resultados de partidos',
       },
       {
-        src: 'prode-mundial/ranking.png',
+        src: 'prode-mundial/ranking.webp',
         alt: 'Ranking de participantes del Prode Mundial 2026',
         caption: 'Ranking de participantes',
       },
       {
-        src: 'prode-mundial/quien-acerto.png',
+        src: 'prode-mundial/quien-acerto.webp',
         alt: 'Detalle de aciertos de un partido del Prode Mundial 2026',
         caption: 'Aciertos por partido',
       },
       {
-        src: 'prode-mundial/admin-partidos.png',
+        src: 'prode-mundial/admin-partidos.webp',
         alt: 'Panel de administración para cargar y editar resultados de partidos',
         caption: 'Administración de partidos',
       },
       {
-        src: 'prode-mundial/admin-ranking.png',
+        src: 'prode-mundial/admin-ranking.webp',
         alt: 'Panel de administración del ranking de participantes',
         caption: 'Administración del ranking',
       },
@@ -78,8 +79,10 @@ export const projects: Project[] = [
     name: 'Sistema Administrativo Integral para Gestión Organizacional',
     type: 'Full Stack',
     featured: true,
+    confidential: true,
     description:
       'Aplicación Full Stack desarrollada para administrar estructuras jerárquicas, personas, cargos y eventos organizacionales desde una única plataforma.',
+    focus: 'Enfoque: gestión interna · consulta de información · seguridad',
     flow: ['request', 'middleware', 'service', 'database'],
     features: [
       'Gestión de estructuras jerárquicas',
@@ -91,6 +94,32 @@ export const projects: Project[] = [
       'Visualización de ubicaciones mediante Google Maps',
       'Autenticación',
       'Validaciones mediante middleware personalizado',
+    ],
+    architectureModules: [
+      {
+        id: 'organizacional',
+        title: 'Gestión organizacional',
+        icon: FiLayers,
+        items: ['Estructuras jerárquicas', 'Personas', 'Cargos'],
+      },
+      {
+        id: 'eventos',
+        title: 'Eventos y ubicación',
+        icon: FiMapPin,
+        items: ['Administración de eventos', 'Ubicaciones', 'Google Maps'],
+      },
+      {
+        id: 'consulta',
+        title: 'Consulta y análisis',
+        icon: FiSearch,
+        items: ['Reportes dinámicos', 'Filtros avanzados', 'Buscador'],
+      },
+      {
+        id: 'seguridad',
+        title: 'Seguridad',
+        icon: FiShield,
+        items: ['Autenticación', 'Validaciones', 'Middleware personalizado'],
+      },
     ],
     technologies: [
       'React',

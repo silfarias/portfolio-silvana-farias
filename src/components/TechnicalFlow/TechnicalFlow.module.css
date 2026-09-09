@@ -7,9 +7,9 @@
   min-width: 0;
   margin: 0 0 var(--space-5);
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.06em;
-  color: rgb(161 161 170 / 82%);
+  color: rgb(161 161 170 / 88%);
 }
 
 .step {

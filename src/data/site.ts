@@ -10,5 +10,5 @@ export const site = {
   linkedinUrl: 'https://www.linkedin.com/in/silvana-abigail-farias-103a54298/',
   linkedinLabel: 'linkedin.com/in/silvana-abigail-farias-103a54298',
   cvPath: cvFile,
-  cvFilename: 'Silvana_Farias_CV_Desarrolladora_Backend.pdf',
+  cvFilename: 'Silvana-Farias-CV.pdf',
 } as const

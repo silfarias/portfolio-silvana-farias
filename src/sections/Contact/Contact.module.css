@@ -1,7 +1,3 @@
-.contact {
-  padding-block: var(--space-20);
-}
-
 .layout {
   display: grid;
   gap: var(--space-10);
