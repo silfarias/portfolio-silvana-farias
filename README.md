@@ -1,78 +1,59 @@
-# React + TypeScript + Vite
+# Portfolio — Silvana Farias
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personal de **Silvana Farias**, Backend Developer. Presenta experiencia, stack, proyectos y educación, con foco en APIs REST, Node.js, NestJS, TypeScript y bases de datos.
 
-Currently, two official plugins are available:
+**Sitio:** [https://silfarias.github.io/portfolio-silvana-farias/](https://silfarias.github.io/portfolio-silvana-farias/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 + TypeScript
+- Vite 8
+- CSS Modules
+- Yarn (Corepack)
+- Deploy en GitHub Pages (GitHub Actions)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Desarrollo local
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+Requisitos: Node.js 22+ y Corepack habilitado.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+corepack enable
+yarn install
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Otros scripts:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+yarn build    # typecheck + build de producción → dist/
+yarn preview  # sirve el build local
+yarn lint
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> El `base` de Vite es `/portfolio-silvana-farias/` (necesario para GitHub Pages). En local, `yarn preview` usa esa misma base.
+
+## Deploy
+
+El workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) se ejecuta en push a `main` (también con `workflow_dispatch`):
+
+1. Instala dependencias con Yarn
+2. Ejecuta `yarn build`
+3. Publica `dist` en GitHub Pages
+
+En el repositorio: **Settings → Pages → Source → GitHub Actions**.
+
+## Estructura relevante
 
 ```
+src/
+  data/          # contenido (hero, experiencia, proyectos, etc.)
+  sections/      # secciones de la página
+  components/    # UI reutilizable
+  assets/        # imágenes, CV
+public/          # favicon, og-cover.jpg
+```
+
+## Contacto
+
+- GitHub: [silfarias](https://github.com/silfarias)
+- LinkedIn: [Silvana Farias](https://www.linkedin.com/in/silvana-abigail-farias-103a54298/)
