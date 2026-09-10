@@ -4,10 +4,8 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    babel({ presets: [reactCompilerPreset()] })
-  ],
+  base: '/portfolio-silvana-farias/',
+  plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   server: {
     // Permite visitas desde el túnel de Cloudflare (trycloudflare.com)
     allowedHosts: ['.trycloudflare.com'],
