@@ -2,7 +2,7 @@ export const heroContent = {
   kicker: '01 / INTRO',
   lede: 'Desarrolladora Full Stack especializada en backend, con experiencia construyendo APIs, lógica de negocio y aplicaciones web con Node.js, NestJS y TypeScript.',
   supporting:
-    'Trabajo con bases de datos relacionales, autenticación, lógica de negocio y entornos Docker y Kubernetes.',
+    'Trabajo con bases de datos relacionales, autenticación, lógica de negocio y entornos con Docker y Kubernetes.',
   technologies: ['Node.js', 'NestJS', 'TypeScript', 'MySQL', 'Docker'],
   flow: ['request', 'controller', 'service', 'database'],
 }

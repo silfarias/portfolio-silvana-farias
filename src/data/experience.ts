@@ -79,7 +79,7 @@ export const experiences: ExperienceItem[] = [
     id: 'sistema-administrativo',
     code: '02',
     track: 'FREELANCE',
-    role: 'Desarrolladora Full Stack - Freelance',
+    role: 'Desarrolladora Full Stack — Freelance',
     organization:
       'Sistema Administrativo Integral para Gestión Organizacional',
     period: 'Octubre 2024 — Julio 2025',

@@ -11,7 +11,7 @@ export const projects: Project[] = [
     context:
       'Plataforma de predicciones desarrollada para Formosa Ventas con motivo del Mundial FIFA 2026.',
     description:
-      'Aplicación Full Stack desarrollada para Formosa Ventas que permitió a clientes y seguidores participar gratuitamente de un Prode del Mundial FIFA 2026, registrar predicciones y competir por premios con un sistema automático de puntuación.',
+      'Aplicación Full Stack que permitió a clientes y seguidores de Formosa Ventas participar gratuitamente de un Prode del Mundial FIFA 2026, registrar predicciones y competir por premios con un sistema automático de puntuación.',
     flow: ['prediction', 'result', 'scoring service', 'ranking'],
     features: [
       'Registro gratuito, inicio de sesión y verificación de cuenta por email',
@@ -29,7 +29,6 @@ export const projects: Project[] = [
       'Docker',
       'React',
       'Vercel',
-      // Confirmar antes de mostrar: Redux Toolkit
     ],
     images: [
       {

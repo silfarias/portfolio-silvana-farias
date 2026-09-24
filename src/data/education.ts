@@ -11,7 +11,7 @@ export const education: EducationItem[] = [
     period: 'Marzo 2023 — Diciembre 2024',
     status: 'Finalizado',
     description:
-      'Formación orientada al desarrollo de software multiplataforma y fundamentos de programación, aplicaciones y sistemas.',
+      'Formación orientada al desarrollo de software multiplataforma, con fundamentos de programación, aplicaciones y sistemas.',
     icon: FiCode,
   },
   {

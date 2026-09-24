@@ -105,7 +105,7 @@ export const stackCategories: TechnologyCategory[] = [
 export const exploringStack: ExploringStack = {
   title: 'Actualmente explorando',
   description:
-    'Tecnologías que estoy incorporando actualmente dentro de mi formación en DevOps.',
+    'Tecnologías que estoy incorporando en mi formación en DevOps.',
   technologies: [
     { name: 'Terraform', icon: SiTerraform },
     { name: 'AWS', icon: FiCloud },
