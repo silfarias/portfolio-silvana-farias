@@ -1,4 +1,4 @@
-import cvFile from '../assets/Silvana_Farias_CV_Desarrolladora_Backend.pdf'
+import cvFile from '../assets/Silvana_Farias_CV_Desarrolladora_FullStack_Backend.pdf'
 
 export const site = {
   name: 'Silvana Farias',
@@ -10,5 +10,5 @@ export const site = {
   linkedinUrl: 'https://www.linkedin.com/in/silvana-abigail-farias-103a54298/',
   linkedinLabel: 'linkedin.com/in/silvana-abigail-farias-103a54298',
   cvPath: cvFile,
-  cvFilename: 'Silvana-Farias-CV.pdf',
+  cvFilename: 'Silvana_Farias_CV_Desarrolladora_FullStack_Backend.pdf',
 } as const
