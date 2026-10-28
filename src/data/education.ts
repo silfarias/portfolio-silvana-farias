@@ -20,8 +20,8 @@ export const education: EducationItem[] = [
     track: 'DEVOPS',
     title: 'Diplomatura Universitaria en DevOps',
     institution: 'MundosE · Universidad Nacional de Córdoba',
-    period: 'Noviembre 2025 — Presente',
-    status: 'En curso',
+    period: 'Noviembre 2025 — Octubre 2026',
+    status: 'Finalizado',
     modality: 'Virtual',
     description:
       'Formación orientada a prácticas DevOps, automatización, integración y entrega continua, contenedores e infraestructura.',
